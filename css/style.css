@@ -11,6 +11,10 @@ body {
   height : 100%;
 }
 
+.logo img {
+  width: 95%;
+}
+
 #side_bar {
   position : absolute;
   left : 0;
