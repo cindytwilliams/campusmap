@@ -1,5 +1,6 @@
 body {
   font-family: 'Libre Franklin', sans-serif;
+  font-size: 16px;
 }
 
 #map_canvas {
@@ -17,7 +18,7 @@ body {
   width : 25%;
   height : 100%;
   overflow-y : scroll;
-  
+
   background-color: #f6f8f9;
   padding: 20px;
   border-radius: 5px;
@@ -29,14 +30,21 @@ body {
   list-style : none;
   padding : 0;
 }
+
 #side_bar ul li {
-  margin : 0;
-  padding : 3px;
+  color: #9D2235;
+  padding: 8px 0 8px 25px;
+  line-height: 125%;
+  display: block;
+  text-decoration: none;
   cursor : pointer;
 }
 
+#side_bar ul li:hover, #side_bar ul li:focus {
+  color: #001A72;
+}
 
-#side_bar ul li a:hover {
+#side_bar ul li:hover {
   -ms-transform: translateX(5px);
   -webkit-transform: translateX(5px);
   transform: translateX(5px);
@@ -48,12 +56,6 @@ body {
   display: block;
   text-decoration: none;
 }
-
-a:hover, a:focus {
-  color: #001A72;
-  text-decoration: underline;
-}
-
 
 .radio_btns { display: none;}
 

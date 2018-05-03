@@ -7,8 +7,8 @@ var bldgsList = [
   {"latlng":[36.364063, -86.497516],name:"Thigpen Library", main : 1},
   {"latlng":[36.363675, -86.498420],name:"Steinhauer-Rogan-Black (SRB) Humanities", main : 1},
   {"latlng":[36.364376, -86.499008],name:"Mattox Building", main : 1},
-  {"latlng":[36.364923, -86.498108],name:"Wallace Health Science Building - South", main : 1},
-  {"latlng":[36.365203, -86.497649],name:"Wallace Health Science Building - North", main : 1},
+  {"latlng":[36.364923, -86.498108],name:"Wallace South", main : 1},
+  {"latlng":[36.365203, -86.497649],name:"Wallace North", main : 1},
   {"latlng":[36.365381, -86.494232],name:"Gibson Hall", main : 1},
   {"latlng":[36.364438, -86.493947],name:"100 Building", main : 1},
   {"latlng":[36.364860, -86.493911],name:"200 Building", main : 1},
@@ -24,6 +24,7 @@ var markerController = new google.maps.MVCObject();
 
 //Initialization
 function initialize() {
+  
   //Create a map
   var mapDiv = document.getElementById("map_canvas");
   mapCanvas = new google.maps.Map(mapDiv);
@@ -37,11 +38,11 @@ function initialize() {
     google.maps.event.addDomListener(choice[i], "click", selectChanged);
   }
   
-
   //Putting markers onto the map
   var bounds = new google.maps.LatLngBounds();
   var campus, latlng;
   
+  // loop through buildings
   for ( i = 0; i < bldgsList.length; i++) {
     campus = bldgsList[i];
     latlng = new google.maps.LatLng(campus.latlng[0], campus.latlng[1]);
