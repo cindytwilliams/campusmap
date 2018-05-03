@@ -1,3 +1,12 @@
+$( document ).ready(function() {
+  $(window).resize(function () {
+    var h = $(window).height(),
+        offsetTop = 60; // Calculate the top offset
+
+    $('#map-canvas').css('height', (h - offsetTop));
+  }).resize();
+});
+
 var bldgsList = [
   {"latlng":[36.362368, -86.497277],name:"Ramer Admin Building", main : 1},
   {"latlng":[36.363101, -86.498032],name:"Wood Campus Center", main : 1},
@@ -27,8 +36,11 @@ function initialize() {
   
   //Create a map
   var mapDiv = document.getElementById("map_canvas");
-  mapCanvas = new google.maps.Map(mapDiv);
-  mapCanvas.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+  var myOptions = {
+    zoom: 8,
+    mapTypeId: google.maps.MapTypeId.HYBRID
+  };
+  mapCanvas = new google.maps.Map(mapDiv,myOptions);
   
   //selectChanged function will be involved when a radio button is clicked.
   var i, choice = [ 
