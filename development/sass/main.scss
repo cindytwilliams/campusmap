@@ -55,11 +55,12 @@ body {
 
   ul {
     list-style: none;
+    padding: 0;
   }
 
   li {
     color: $red;
-    padding: 8px 0 8px 0;
+    padding: 8px 0;
     line-height: 1em;
     display: block;
     text-decoration: none;
