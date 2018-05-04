@@ -4,6 +4,7 @@ $blue: #001A72;
 $ltgray: #f6f8f9;
 $dkgray: #dadada;
 $font-stack: 'Libre Franklin', sans-serif;
+$window-height: 750px;
 
 html, body {
   height: 100%;
@@ -16,7 +17,7 @@ body {
 
 /* map */
 #map_canvas {
-  height: 700px;
+  height: $window-height;
   img {
     max-width: none;
   }
@@ -33,11 +34,14 @@ body {
 }
 
 /* logo */
-.logo img {
-  padding-bottom: 20px;
-  width: 100%;
-  max-width: 250px;
-  height: auto;
+.logo {
+  text-align: center;
+  img {
+    padding-bottom: 20px;
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+  }
 }
 
 /* sidebar */
@@ -45,7 +49,7 @@ body {
   background-color: $ltgray;
   border: 1px solid $dkgray;
   padding: 20px;
-  height: 700px;
+  height: $window-height;
 
   ul {
     list-style: none;

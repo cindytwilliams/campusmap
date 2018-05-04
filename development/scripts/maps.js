@@ -14,14 +14,14 @@ var bldgsList = [
   {
     "latlng":[36.362368, -86.497277],
     name:"Ramer Administration",
-    desc:"Academic Affairs, Administrative Offices, Admissions, Advising, Business Office, Cashier's Office (Payments), Distributed Education, Financial Aid, Human Resources, Media Services, President's Office, Public Relations, Records & Registration, TV Studio, Recording Studio, Veterans & Adult Learners, WVCP Radio, International Education",
+    desc:"Academic Affairs, Administrative Offices, Admissions, Advising, Business Office, Cashier, Disability Services, Distributed Education, Financial Aid, Human Resources, Media Services, President's Office, Public Relations, Records & Registration, TV & Recording Studio, Veterans & Adult Learners, WVCP Radio, International Education",
     main:1,
     photo:"img/ramer.jpg"
   },
   {
     "latlng":[36.363101, -86.498032],
     name:"Wood Campus Center",
-    desc:"Bookstore, Campus Police, Dining Rooms, Disability Services, Middle College, Plant Operations, Student Engagement & Support, Diversity & Inclusion, Student Government & Clubs, Student Services, TRIO Student Support Services Program, Vol State Grill, Information Technology (IT)",
+    desc:"Bookstore, Campus Police, Dining Rooms, Middle College, Plant Operations, Student Engagement & Support, Diversity & Inclusion, Student Government & Clubs, Student Services, TRIO Student Support Services Program, Vol State Grill, Information Technology (IT)",
     main:1,
     photo:"img/wood.jpg"
   },
