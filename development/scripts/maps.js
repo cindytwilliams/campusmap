@@ -178,7 +178,6 @@ function initialize() {
   // Fits the viewport to the bounds.
   mapCanvas.fitBounds(bounds);
   
-  
   // Sets the initial selected value
   markerController.set("select", "main");
   google.maps.event.trigger(choice[0], "click");
