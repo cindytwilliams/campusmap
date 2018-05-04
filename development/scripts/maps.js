@@ -122,6 +122,13 @@ var bldgsList = [
     desc:"Veterinary Assistant, Veterinary Technology, Veterinary Medicine",
     main:1,
     photo:"img/vettech.jpg"
+  },
+  {
+    "latlng":[36.366649, -86.503639, -86.497572],
+    name:"Watlington Science Field Station",
+    desc:"Mechatronics",
+    main:1,
+    photo:"img/watlington.jpg"
   }
 ];
 

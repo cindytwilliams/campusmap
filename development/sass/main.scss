@@ -26,9 +26,11 @@ body {
 /* popup */
 .popup {
   padding: 5px;
+  width: 375px;
   img {
     float: left;
     padding-right: 10px;
+    padding-bottom: 10px;
     width: 200px;
   }
 }
@@ -76,9 +78,10 @@ body {
 .footer {
   background-color: $blue;
   color: #ffffff;
+  font-size: 14px;
   position: relative;
   margin-top: -75px; /* negative value of footer height */
-  height: 75px;
+  height: 70px;
   clear: both;
   padding: 20px;
   text-align: center;
