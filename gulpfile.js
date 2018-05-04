@@ -3,7 +3,8 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
-    gutil = require('gulp-util');
+    gutil = require('gulp-util'),
+    browserSync = require('browser-sync').create();
 
 
 // Define file sources
@@ -39,6 +40,13 @@ gulp.task('watch', function() {
     gulp.watch(jsSources,['concat']); 
 });
 
+// browser sync
+gulp.task('browser-sync', function() {
+    browserSync.init({
+        proxy: "localhost"
+    });
+});
+
 
 // Default gulp task
-gulp.task('default', ['sass', 'concat', 'watch']);
+gulp.task('default', ['sass', 'concat', 'browser-sync', 'watch']);

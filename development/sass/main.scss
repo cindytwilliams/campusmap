@@ -1,18 +1,35 @@
+/* colors */
+$red: #9D2235;
+$blue: #001A72;
+$ltgray: #f6f8f9;
+$dkgray: #dadada;
+$font-stack: 'Libre Franklin', sans-serif;
+
 html, body {
   height: 100%;
 }
 
 body {
-  font-family: 'Libre Franklin', sans-serif;
+  font-family: $font-stack;
   font-size: 16px;
 }
 
 /* map */
 #map_canvas {
   height: 700px;
+  img {
+    max-width: none;
+  }
 }
-#map_canvas img {
-  max-width: none;
+
+/* popup */
+.popup {
+  padding: 5px;
+  img {
+    float: left;
+    padding-right: 10px;
+    width: 200px;
+  }
 }
 
 /* logo */
@@ -25,38 +42,39 @@ body {
 
 /* sidebar */
 #side_bar {
-  background-color: #f6f8f9;
-  border: 1px solid #dadada;
+  background-color: $ltgray;
+  border: 1px solid $dkgray;
   padding: 20px;
-}
+  height: 700px;
 
-#side_bar ul {
-  list-style: none;
-}
+  ul {
+    list-style: none;
+  }
 
-#side_bar ul li {
-  color: #9D2235;
-  padding: 8px 0 8px 0;
-  line-height: 125%;
-  display: block;
-  text-decoration: none;
-  cursor: pointer;
-}
+  li {
+    color: $red;
+    padding: 8px 0 8px 0;
+    line-height: 125%;
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+  }
 
-#side_bar ul li:hover, #side_bar ul li:focus {
-  -ms-transform: translateX(5px);
-  -webkit-transform: translateX(5px);
-  transform: translateX(5px);
-  color: #001A72;
+  li:hover, li:focus {
+    -ms-transform: translateX(5px);
+    -webkit-transform: translateX(5px);
+    transform: translateX(5px);
+    color: $blue;
+  }
 }
 
 /* footer */
 .footer {
-  background-color: #001A72;
+  background-color: $blue;
   color: #ffffff;
   position: relative;
-  margin-top: -150px; /* negative value of footer height */
-  height: 50px;
+  margin-top: -75px; /* negative value of footer height */
+  height: 75px;
   clear: both;
   padding: 20px;
   text-align: center;

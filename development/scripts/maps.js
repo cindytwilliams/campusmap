@@ -1,3 +1,4 @@
+// resize map depending on screen size
 $( document ).ready(function() {
   $(window).resize(function () {
     var h = $(window).height(),
@@ -5,36 +6,135 @@ $( document ).ready(function() {
 
     $('#map-canvas').css('height', (h - offsetTop));
   }).resize();
+
 });
 
+// buildings list and coordinates
 var bldgsList = [
-  {"latlng":[36.362368, -86.497277],name:"Ramer Admin Building", main : 1},
-  {"latlng":[36.363101, -86.498032],name:"Wood Campus Center", main : 1},
-  {"latlng":[36.362379, -86.498191],name:"Caudill Hall", main : 1},
-  {"latlng":[36.363281, -86.496656],name:"Warf Building", main : 1},
-  {"latlng":[36.364172, -86.496445],name:"Pickel Field House", main : 1},
-  {"latlng":[36.364063, -86.497516],name:"Thigpen Library", main : 1},
-  {"latlng":[36.363675, -86.498420],name:"Steinhauer-Rogan-Black (SRB) Humanities", main : 1},
-  {"latlng":[36.364376, -86.499008],name:"Mattox Building", main : 1},
-  {"latlng":[36.364923, -86.498108],name:"Wallace South", main : 1},
-  {"latlng":[36.365203, -86.497649],name:"Wallace North", main : 1},
-  {"latlng":[36.365381, -86.494232],name:"Gibson Hall", main : 1},
-  {"latlng":[36.364438, -86.493947],name:"100 Building", main : 1},
-  {"latlng":[36.364860, -86.493911],name:"200 Building", main : 1},
-  {"latlng":[36.364795, -86.493252],name:"300 Building", main : 1},
-  {"latlng":[36.365369, -86.493621],name:"400 Building", main : 1}
+  {
+    "latlng":[36.362368, -86.497277],
+    name:"Ramer Administration",
+    desc:"Academic Affairs, Administrative Offices, Admissions, Advising, Business Office, Cashier's Office (Payments), Distributed Education, Financial Aid, Human Resources, Media Services, President's Office, Public Relations, Records & Registration, TV Studio, Recording Studio, Veterans & Adult Learners, WVCP Radio, International Education",
+    main:1,
+    photo:"img/ramer.jpg"
+  },
+  {
+    "latlng":[36.363101, -86.498032],
+    name:"Wood Campus Center",
+    desc:"Bookstore, Campus Police, Dining Rooms, Disability Services, Middle College, Plant Operations, Student Engagement & Support, Diversity & Inclusion, Student Government & Clubs, Student Services, TRIO Student Support Services Program, Vol State Grill, Information Technology (IT)",
+    main:1,
+    photo:"img/wood.jpg"
+  },
+  {
+    "latlng":[36.362379, -86.498191],
+    name:"Caudill Hall",
+    desc:"Social Science & Education Division, Wemyss Auditorium",
+    main:1,
+    photo:"img/caudill.jpg"
+  },
+  {
+    "latlng":[36.363281, -86.496656],
+    name:"Warf",
+    desc:"Math & Science Division, Science Labs, Testing",
+    main:1,
+    photo:"img/warf.jpg"
+  },
+  {
+    "latlng":[36.364172, -86.496445],
+    name:"Pickel Field House",
+    desc:"Athletics, Health & Physical Education, Moore Gymnasium",
+    main:1,
+    photo:"img/pickel.jpg"
+  },
+  {
+    "latlng":[36.364063, -86.497516],
+    name:"Thigpen Library",
+    desc:"Learning Commons, Rochelle Center, IT Help Desk",
+    main:1,
+    photo:"img/thigpen.jpg"
+  },
+  {
+    "latlng":[36.363675, -86.498420],
+    name:"Steinhauer-Rogan-Black (SRB) Humanities",
+    desc:"Humanities Division, Recording Studio, Art Studios, Art Gallery, Music Rooms, Language Center, Honors Program",
+    main:1,
+    photo:"img/srb.jpg"
+  },
+  {
+    "latlng":[36.364376, -86.499008],
+    name:"Mattox",
+    desc:"Business & Technology Division, Computer Labs",
+    main:1,
+    photo:"img/mattox.jpg"
+  },
+  {
+    "latlng":[36.364923, -86.498108],
+    name:"Wallace South",
+    desc:"Diagnostic Medical Sonography, Emergency Medical Services, Medical Laboratory Technology, Ophthalmic Technology, Sleep Diagnostics",
+    main:1,
+    photo:"img/wallacesouth.jpg"
+  },
+  {
+    "latlng":[36.365203, -86.497649],
+    name:"Wallace North",
+    desc:"Health Science Division, Chemistry Labs, Radiologic Technology Program, Respiratory Care Program",
+    main:1,
+    photo:"img/wallacenorth.jpg"
+  },
+  {
+    "latlng":[36.365381, -86.494232],
+    name:"Gibson Hall",
+    desc:"The Foundation, TSU Nursing, TSU Education, Dual Enrollment & Off-Campus Events",
+    main:1,
+    photo:"img/gibson.jpg"
+  },
+  {
+    "latlng":[36.364438, -86.493947],
+    name:"100 Building",
+    desc:"Physical Therapist Assistant Program",
+    main:1,
+    photo:"img/100.jpg"
+  },
+  {
+    "latlng":[36.364860, -86.493911],
+    name:"200 Building",
+    desc:"Audio & Visual Services",
+    main:1,
+    photo:"img/200.jpg"
+  },
+  {
+    "latlng":[36.364795, -86.493252],
+    name:"300 Building",
+    desc:"Continuing Education, Center of Emphasis, TSBDC, High School Equivalency Adult Education, Business & Industry Institute, OTIEC, Lindsey Wilson College, Trevecca Nazarene University",
+    main:1,
+    photo:"img/300.jpg"
+  },
+  {
+    "latlng":[36.365369, -86.493621],
+    name:"400 Building",
+    desc:"Dental Assistant Program, Health Information Technology Program",
+    main:1,
+    photo:"img/400.jpg"
+  },
+  {
+    "latlng":[36.366099, -86.497572],
+    name:"Veterinary Technology",
+    desc:"Veterinary Assistant, Veterinary Technology, Veterinary Medicine",
+    main:1,
+    photo:"img/vettech.jpg"
+  }
 ];
 
-//Create a infoWindow for all markers
-var infoWnd = new google.maps.InfoWindow();
+// Create a infoWindow for all markers
+var infoWnd = new google.maps.InfoWindow({ maxWidth: 375 });
 
-//To control markers' visibility by radio buttons.
+// To control markers' visibility by radio buttons.
 var markerController = new google.maps.MVCObject();
 
-//Initialization
+// Initialization
 function initialize() {
   
-  //Create a map
+  // Create a map
   var mapDiv = document.getElementById("map_canvas");
   var myOptions = {
     zoom: 8,
@@ -42,7 +142,7 @@ function initialize() {
   };
   mapCanvas = new google.maps.Map(mapDiv,myOptions);
   
-  //selectChanged function will be involved when a radio button is clicked.
+  // selectChanged function will be involved when a radio button is clicked.
   var i, choice = [ 
     document.getElementById("main")
   ];
@@ -50,7 +150,7 @@ function initialize() {
     google.maps.event.addDomListener(choice[i], "click", selectChanged);
   }
   
-  //Putting markers onto the map
+  // Putting markers onto the map
   var bounds = new google.maps.LatLngBounds();
   var campus, latlng;
   
@@ -65,25 +165,25 @@ function initialize() {
       others : campus
     });
 
-    //Create side-bar buttons
+    // Create side-bar buttons
     createMarkerButton(marker);
   }
-  //Fits the viewport to the bounds.
+  // Fits the viewport to the bounds.
   mapCanvas.fitBounds(bounds);
   
   
-  //Sets the initial selected value
+  // Sets the initial selected value
   markerController.set("select", "main");
   google.maps.event.trigger(choice[0], "click");
 }
 
-//This function will be involved when a radio button is clicked.
-//select_changed events will be fired for every markers when the markerController's property is updated.
+// This function will be involved when a radio button is clicked.
+// select_changed events will be fired for every markers when the markerController's property is updated.
 function selectChanged() {
   var selectedVal = this.value;
   markerController.set("select", selectedVal);
   
-  //Changes visibilities for each <ul>.
+  // Changes visibilities for each <ul>.
   var i, ul, listNames = ["main"];
   for (i = 0; i < listNames.length; i++) {
     ul = document.getElementById(listNames[i] + "_list");
@@ -95,14 +195,16 @@ function selectChanged() {
   }
 }
 
-//Create a marker.
+// Create a marker.
 function createMarker(params) {
   var marker = new google.maps.Marker(params);
 
-  //When the marker is clicked, the infoWindow is displayed.
+  // When the marker is clicked or hovered, the infoWindow is displayed.
   google.maps.event.addListener(marker, "click", function() {
-    infoWnd.setContent("<strong>" + params.others.name + "</strong>");
-    infoWnd.open(params.map, marker);
+    popup(params, marker);
+  });
+  google.maps.event.addListener(marker, "mouseover", function() {
+    popup(params, marker);
   });
 
   // Binds the select properties between marker and markerController.
@@ -113,27 +215,32 @@ function createMarker(params) {
   return marker;
 }
 
-//If markerController.select is changed, 
-//then check the each value of params.others,
-//and change the visibility of the marker.
+// Content of infoWindow
+function popup(params, marker) {
+  infoWnd.setContent("<div class='popup'><img src='" + params.others.photo + "'><p><strong>" + params.others.name + "</strong></p><p>" + params.others.desc + "</p></div>");
+  infoWnd.open(params.map, marker);
+}
+
+// If markerController.select is changed, 
+// then check the each value of params.others,
+// and change the visibility of the marker.
 function changeMarkerVisibility() {
-  //"this" means "marker".
+  // "this" means "marker".
   var marker = this;
   var others = marker.get("others");
   
-  //The selected value of radio buttons
+  // The selected value of radio buttons
   var selectedVal = marker.get("select");
   
-  //Determine the marker's visibility.
+  // Determine the marker's visibility.
   marker.setVisible( others[selectedVal] ? true : false );
 }
 
-//Create buttons each <ul>s.
+// Create buttons each <ul>s.
 function createMarkerButton(marker) {
   var others = marker.get("others"),
       i, name, ul, li,
       listNames = ["main"];
-      
   
   // Only creates a button when the propery is 1
   for (i = 0; i < listNames.length; i++) {
@@ -144,7 +251,7 @@ function createMarkerButton(marker) {
       li.innerHTML = others.name;
       ul.appendChild(li);
       
-      //If the button is clicked, then the marker would be clicked.
+      // If the button is clicked, then the marker would be clicked.
       google.maps.event.addDomListener(li, "click", function() {
         google.maps.event.trigger(marker, "click");
       });
