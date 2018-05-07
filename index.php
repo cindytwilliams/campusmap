@@ -13,7 +13,6 @@
         </a>
       </div>
       
-      <input type="radio" name="campus" value="main" id="main" checked="checked" class="radio_btns">
       <ul id="main_list"></ul>
     
     </aside>

@@ -155,7 +155,7 @@ for ( i = 0; i < bldgsList.length; i++) {
   /*var marker = L.marker([building.latlng[0], building.latlng[1]]).addTo(mymap);
   marker.bindPopup(popupContent).openPopup();*/
   
-  popupContent = "<div class='popup'><img src='" + building.photo + "'><p><strong>" + building.name + "</strong></p><p>" + building.desc + "</p></div>";
+  popupContent = "<div class='popup'><img src='" + building.photo + "'><strong>" + building.name + "</strong><p>" + building.desc + "</p></div>";
   var marker = L.marker([building.latlng[0], building.latlng[1]],{title:"marker_" + i}).addTo(mymap).bindPopup(popupContent);
   markers.push(marker);   // add to markers array
   

@@ -16,6 +16,17 @@ body {
   font-size: 16px;
 }
 
+/* no-gutters Class Rules */
+.row.no-gutters {
+   margin-right: 0;
+   margin-left: 0;
+}
+.row.no-gutters > [class^="col-"],
+.row.no-gutters > [class*=" col-"] {
+   padding-right: 0;
+   padding-left: 0;
+}
+
 /* map */
 #map_canvas {
   height: $window-height;
@@ -27,12 +38,13 @@ body {
 /* popup */
 .popup {
   padding: 5px;
-  width: 375px;
+  width: 300px;
+  min-height: 200px;
   img {
     float: left;
     padding-right: 10px;
     padding-bottom: 10px;
-    width: 200px;
+    width: 175px;
   }
 }
 
@@ -88,19 +100,3 @@ body {
   padding: 20px;
   text-align: center;
 } 
-
-/* hide radio buttons */
-.radio_btns { 
-  display: none;
-}
-
-/* no-gutters Class Rules */
-.row.no-gutters {
-   margin-right: 0;
-   margin-left: 0;
-}
-.row.no-gutters > [class^="col-"],
-.row.no-gutters > [class*=" col-"] {
-   padding-right: 0;
-   padding-left: 0;
-}
