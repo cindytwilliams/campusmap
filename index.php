@@ -8,7 +8,7 @@
     <aside class="col-md-3" id="side_bar">
       
       <div class="logo">
-        <a href="https://www.volstate.edu" title="Volunteer State Community College" rel="home" class="site-branding__logo">
+        <a href="https://www.volstate.edu" title="Volunteer State Community College" tabindex="0" rel="home" class="site-branding__logo">
           <img src="img/volstate_logo.png" alt="Volunteer State Community College">
         </a>
       </div>
@@ -20,7 +20,7 @@
 
     <!-- map -->
     <main class="col-md-9">
-      <div id="map_canvas"></div>
+      <div id="map_canvas" tabindex="99"></div>
     </main>
 
   </div>  <!-- row -->

@@ -6,6 +6,7 @@ $dkgray: #dadada;
 $font-stack: 'Libre Franklin', sans-serif;
 $window-height: 750px;
 
+/* layout */
 html, body {
   height: 100%;
 }
@@ -55,7 +56,7 @@ body {
 
   ul {
     list-style: none;
-    padding: 0;
+    padding: 0 ;
   }
 
   li {

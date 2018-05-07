@@ -132,6 +132,62 @@ var bldgsList = [
   }
 ];
 
+
+// create the map
+var mymap = L.map('map_canvas').setView([36.364063, -86.497516], 18);
+
+L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidnNjY3dlYm1hc3RlciIsImEiOiJjamd3Z2pveGkxc3lxMnFydG5maTMxeHo4In0.fvbc2agbtqpmge8ASFPeRg', {
+  maxZoom: 18,
+  attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+    '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+    'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+  id: 'mapbox.satellite'
+}).addTo(mymap);
+
+var ul, li, markers = [];
+ul = document.getElementById( "main_list" );
+
+ // loop through the buildings
+for ( i = 0; i < bldgsList.length; i++) {
+  building = bldgsList[i];
+  
+  // create a marker on the map
+  /*var marker = L.marker([building.latlng[0], building.latlng[1]]).addTo(mymap);
+  marker.bindPopup(popupContent).openPopup();*/
+  
+  popupContent = "<div class='popup'><img src='" + building.photo + "'><p><strong>" + building.name + "</strong></p><p>" + building.desc + "</p></div>";
+  var marker = L.marker([building.latlng[0], building.latlng[1]],{title:"marker_" + i}).addTo(mymap).bindPopup(popupContent);
+  markers.push(marker);   // add to markers array
+  
+  // Create a sidebar link
+  li = document.createElement("li");
+  li.setAttribute('id', 'marker_' + i);
+  li.setAttribute('tabindex', i+1);
+  li.innerHTML = building.name;
+  ul.appendChild(li);
+}
+
+// put keyboard focus on sidebar list
+ul = document.getElementById( "main_list" );
+ul.focus();
+
+function markerFunction(id){
+  for (var i in markers){
+      var markerID = markers[i].options.title;
+      if (markerID == id){
+          markers[i].openPopup();
+      };
+  }
+}
+
+$("li").click(function(){
+    markerFunction($(this)[0].id);
+});
+
+
+
+/* GOOGLE MAPS
+
 // Create a infoWindow for all markers
 var infoWnd = new google.maps.InfoWindow({ maxWidth: 375 });
 
@@ -267,3 +323,4 @@ function createMarkerButton(marker) {
 }
 
 google.maps.event.addDomListener(window, "load", initialize);
+*/
