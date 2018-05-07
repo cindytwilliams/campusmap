@@ -132,7 +132,6 @@ var bldgsList = [
   }
 ];
 
-
 // create the map
 var mymap = L.map('map_canvas').setView([36.364063, -86.497516], 18);
 
@@ -151,15 +150,12 @@ ul = document.getElementById( "main_list" );
 for ( i = 0; i < bldgsList.length; i++) {
   building = bldgsList[i];
   
-  // create a marker on the map
-  /*var marker = L.marker([building.latlng[0], building.latlng[1]]).addTo(mymap);
-  marker.bindPopup(popupContent).openPopup();*/
-  
+  // create a marker on the map  
   popupContent = "<div class='popup'><img src='" + building.photo + "'><strong>" + building.name + "</strong><p>" + building.desc + "</p></div>";
   var marker = L.marker([building.latlng[0], building.latlng[1]],{title:"marker_" + i}).addTo(mymap).bindPopup(popupContent);
   markers.push(marker);   // add to markers array
   
-  // Create a sidebar link
+  // create a sidebar link
   li = document.createElement("li");
   li.setAttribute('id', 'marker_' + i);
   li.setAttribute('tabindex', i+1);
